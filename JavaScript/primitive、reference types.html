@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promitive、reference</title>
+</head>
+<body>
+    <script>
+        
+        //基本類別 引用類型
+        //基本類型: 數字 字串 布林值...
+        //引用類型: 物件
+
+        let a = 10;
+        let b = 20;
+
+        //物件會以地址的方式存在stack中，而該地址可以導向該物件中的東西(屬性)
+        let c = {
+            nmae:"王東森",
+            age: 22
+        };
+        //這你很在行
+
+
+        //物件補充
+        const d = {
+            name:"王東森",
+            age:22
+        };
+        const {name, age} = d;
+        console.log(name, age);
+    </script>
+</body>
+</html>

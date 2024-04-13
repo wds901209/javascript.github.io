@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>falsy、truthy</title>
+</head>
+<body>
+    <!-- falsy & truthy value -->
+    <script>
+        //false的多種表達方式:false, "", 0, NaN, undefined(現在沒有值，之後可能會有), null
+        let x = undefined; //之後會給他
+        let y = null;   //本來就打算不給他值
+        if(""){
+            console.log("你好");
+        }
+
+        //truthy: 只要不是falsy value都是true!
+        if(77){
+            console.log("跩喔")
+        }
+        if(!null){
+            console.log("777");
+        }
+    </script>
+</body>
+</html>

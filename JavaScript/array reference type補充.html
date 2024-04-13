@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array reference type補充</title>
+</head>
+<body>
+    <script>
+        //array跟物件一樣是引用類別(reference type)
+        //兩個指向同一地方
+        let a = [1,2,3];
+        let b = a;
+
+        //若想要資料相同但又指向不同地方
+        let c = a.slice();
+
+        a.push(4);
+        console.log(a);
+        //會發現b裡面也有4
+        console.log(b);
+        //會發現c沒有4，因為他跟ab不是指同一地址
+        console.log(c);
+    </script>
+</body>
+</html>

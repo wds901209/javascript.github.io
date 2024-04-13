@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剪刀石頭布function、return</title>
+    <style>
+        button{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p>請選擇</p>
+    <!-- 隨機生成0~1 -->
+    <button onclick="
+        const computerChoice = gererateComputerChoice();
+
+        if(computerChoice === '剪刀'){
+            alert('平手');
+        }else if(computerChoice === '石頭'){
+            alert('你輸了');
+        }else{
+            alert(`你贏了 電腦出${computerChoice}`);
+        }
+    ">剪刀</button>
+    <button onclick="
+        const computerChoice = gererateComputerChoice();
+
+        if(computerChoice === '剪刀'){
+            alert(`你贏了 電腦出${computerChoice}`);
+        }else if(computerChoice === '石頭'){
+            alert('平手');
+        }else{
+            alert('你輸了');
+        }
+    ">石頭</button>
+    <button onclick="
+        const computerChoice = gererateComputerChoice();
+
+        if(computerChoice === '剪刀'){
+            alert(`你輸了`);
+        }else if(computerChoice === '石頭'){
+            alert(`你贏了 電腦出${computerChoice}`);
+        }else{
+            alert('平手');
+        }
+    ">布</button>
+
+
+
+    <script>
+        //全域變數
+        let a = 0;
+        //區域變數
+        if(a===0){
+            let b = 2;
+            let a = 6;
+        }
+        //無法顯示b 因為b是區域變數，出了{}就活不了
+        //console.log(b);
+        //a 仍然是0 因為a=6的時間僅止於{}內
+        //console.log(a);
+
+        
+        function gererateComputerChoice(){
+            const randomNum = Math.random()*3.2;
+            let computerChoice = "";
+            console.log(randomNum);
+            if(0<=randomNum && randomNum<1){
+                computerChoice = '剪刀';
+            }else if(1<=randomNum && randomNum<2){
+                computerChoice = '石頭';
+            }else{
+                computerChoice = '布';
+            }
+            //利用return把console.log覆蓋掉
+            return computerChoice;
+        }
+
+
+        //函數參數
+        function calculateDisciunt(price, discount=0.9){    
+            const discountPrice = price*discount;
+            return discountPrice;
+        }
+
+        let price = 6000;
+        //若呼叫時沒有傳入discount參數，就會用預設值(0.9)
+        console.log(calculateDisciunt(price));
+
+        //其實alert本身也是函數
+        alert("你好");
+    </script>
+</body>
+</html>

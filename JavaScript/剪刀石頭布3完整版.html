@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剪刀石頭布function、return</title>
+    <style>
+        button{
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background-color: bisque;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>請選擇</p>
+
+    <!-- 剪刀 -->
+    <button onclick="
+        playGame('剪刀');
+    ">剪刀</button>
+
+    <!-- 石頭 -->
+    <button onclick="
+        playGame('石頭');        
+    ">石頭</button>
+
+    <!-- 布 -->
+    <button onclick="
+        playGame('布');
+    ">布</button>
+
+
+
+    <script>
+        //電腦出什麼
+        function generateComputerChoice(){
+            const randomNum = Math.random()*3.2;
+            let computerChoice = "";
+            console.log(randomNum);
+            if(0<=randomNum && randomNum<1){
+                computerChoice = '剪刀';    //0<=~1
+            }else if(1<=randomNum && randomNum<2){
+                computerChoice = '石頭';    //1<=~2
+            }else{
+                computerChoice = '布';      //>2
+            }
+            //利用return把console.log覆蓋掉
+            return computerChoice;
+        }
+
+        //判斷輸贏
+        //創一個函數 可傳入玩家級電腦的選擇
+        //並跳出提示框 顯示誰贏
+        function playGame(userChoice){          
+            //先讓playGame一開始就call generateComputerChoice()
+            const computerChoice = generateComputerChoice();
+            //user =  剪刀
+            if(userChoice === '剪刀'){
+                if(computerChoice === '剪刀'){
+                    alert(`平手`);
+                }else if(computerChoice === '石頭'){
+                    alert('你輸了');
+                }else{
+                    alert(`你贏了 電腦出${computerChoice}`);
+                }
+            }else if(userChoice === '石頭'){
+                if(computerChoice === '剪刀'){
+                    alert(`你贏了 電腦出${computerChoice}`);
+                }else if(computerChoice === '石頭'){
+                    alert('平手');
+                }else{
+                    alert('你輸了');
+                }
+            }else{
+                if(computerChoice === '剪刀'){
+                    alert(`你輸了`);
+                }else if(computerChoice === '石頭'){
+                    alert(`你贏了 電腦出${computerChoice}`);
+                }else{
+                    alert('平手');
+                }
+            }
+                
+        }
+        //總結:
+        //當其中一個按鈕被按後，就會呼叫playGame()，且傳入'剪刀'
+        //接著呼叫generateComputerChoice，就知道電腦選什麼
+        //最後在判斷各種輸贏條件
+    </script>
+</body>
+</html>

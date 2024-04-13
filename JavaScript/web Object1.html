@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>測驗</title>
+        <style>
+            button{
+                font-size:25px;
+                margin-right:10px;
+            }
+            p{
+                font-size: 25px;
+                display: inline-block;
+                margin-right:10px;
+            }
+            img{
+                height: 200px;
+                display: block;
+                margin-top:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="showCart();">購物車總額</button>
+        
+        <button onclick="
+            cart.productNum = 0;
+            cart.product1 = 0;
+            cart.product2 = 0;
+            cart.totalprice = 0;
+            console.log('已經清空購物車'); 
+            showCart();
+        ">清空購物車</button>
+
+        <img src="product_images/product_image1.jpg">
+        <p>$100</p>
+        <button onclick="
+            cart.productNum +=1;
+            cart.product1 +=1;
+            cart.totalprice = cart.totalprice+100;
+            showCart();
+        ">加入購物車</button>
+
+        <img src="product_images/product_image2.jpg">
+        <p>$200</p>
+        <button onclick="
+            cart.productNum +=1;
+            cart.product2 +=1;
+            cart.totalprice += 200;
+            showCart();
+        ">加入購物車</button>
+        
+
+        <script>
+            let cart = {
+                productNum: 0,
+                product1: 0,                
+                product2: 0,
+                totalprice: 0
+            };
+            
+            function showCart(){
+                console.log(`目前商品數量: ${cart.productNum}`);
+                console.log(`商品1: ${cart.product1}`);
+                console.log(`商品2: ${cart.product2}`);
+                console.log(`目前購物車總額: ${cart.totalprice}`);
+            }
+            
+
+        </script>
+    </body>
+</html>

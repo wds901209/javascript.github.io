@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>測驗</title>
+        <style>
+            button{
+                font-size:25px;
+                margin-right:10px;
+            }
+            p{
+                font-size: 25px;
+                display: inline-block;
+                margin-right:10px;
+            }
+            img{
+                height: 200px;
+                display: block;
+                margin-top:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="console.log(totalprice)">購物車總額</button>
+        
+        <button onclick="
+            totalprice = 0;
+            console.log('已經清空購物車'); 
+            console.log(`目前購物車總額: ${totalprice}`);
+        ">清空購物車</button>
+
+        <img src="product_images/product_image1.jpg">
+        <p>$100</p>
+        <button onclick="
+            totalprice = totalprice+100;
+            console.log(`目前購物車總額: ${totalprice}`);
+        ">加入購物車</button>
+
+        <img src="product_images/product_image2.jpg">
+        <p>$200</p>
+        <button onclick="
+            totalprice += 200;
+            console.log(`目前購物車總額: ${totalprice}`);
+        ">加入購物車</button>
+        
+
+        <script>
+            let totalprice = 0;
+            let name = `
+                小白
+                跩喔`;  //模板字串(esc下方) 可直接換行
+            let age = 22;
+            let height = 180;
+            console.log(name);
+            //用${變數}就不用+來+去
+            let descirbe = `小王今年${age-1}歲 身高${height+2}公分`;
+            console.log(descirbe);
+            //const 創建的變數不能修改
+            const price = 777;
+            // price = 777+1;
+            console.log(price);
+        </script>
+    </body>
+</html>

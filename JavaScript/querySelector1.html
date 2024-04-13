@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector1</title>
+</head>
+<body>
+    <!-- innerHTML連空白、換行都會取得 -->
+    <!-- 所以只想要改變文字要用innerText -->
+    <button onclick="subscribe();">訂閱</button>
+
+    <script>
+        function subscribe(){
+            const buttonElement = document.querySelector('button');
+            if(buttonElement.innerHTML === '訂閱'){
+                buttonElement.innerText = '已訂閱';
+            }else{
+                buttonElement.innerText = '訂閱';         
+            }
+        }
+    </script>
+            
+</body>
+</html>

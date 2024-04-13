@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web30</title>
+        <style>
+            button{
+                font-size:25px;
+                margin-right:10px;
+            }
+            p{
+                font-size: 25px;
+                display: inline-block;
+                margin-right:10px;
+            }
+            img{
+                height: 200px;
+                display: block;
+                margin-top:50px;
+            }
+            .cart{
+                margin-top: 50px;
+                display:block;
+                line-height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <button onclick="
+            cart.productNum = 0;
+            cart.product1.num = 0;
+            cart.product2.num = 0;
+            cart.totalprice = 0;
+            console.log('已經清空購物車'); 
+            localStorage.removeItem('cart');
+            showCart();
+        ">清空購物車</button>
+
+        <img src="product_images/product_image1.jpg">
+        <p>$100</p>
+        <button onclick="
+            cart.productNum ++;
+            cart.product1.num ++;
+            cart.totalprice = cart.totalprice+100;
+            storage();
+            showCart();
+        ">加入購物車</button>
+
+        <img src="product_images/product_image2.jpg">
+        <p>$200</p>
+        <button onclick="
+            cart.productNum ++;
+            cart.product2.num ++;
+            cart.totalprice += 200;
+            storage();
+            showCart();
+        ">加入購物車</button>
+        
+        <p class="cart">
+        </p>
+
+        <script>
+            function showCart(){
+                document.querySelector(".cart").innerHTML = `
+                    目前商品數量: ${cart.productNum} <br>
+                    ${cart.product1.name}: ${cart.product1.num} <br>
+                    ${cart.product2.name}: ${cart.product2.num} <br>
+                    目前購物車總額: ${cart.totalprice}  <br>
+                `              
+            }
+            function storage(){
+                const jsonCart = JSON.stringify(cart);  //把js轉成JSON檔存入
+                localStorage.setItem("cart", jsonCart);
+            }
+
+            //讓網頁一開始就取得之前的資料，且轉成JS格式
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            
+            //若他的購物車是空的就...
+            if(cart === null){
+                cart = {
+                    productNum: 0,
+                    product1: {
+                        num:0,
+                        name:"海底撈火鍋",
+                        price: 100
+                    }, 
+                                
+                    product2: {
+                        num:0,
+                        name:"養氣人參",
+                        price:200
+                    },
+                    totalprice: 0,
+                };
+        }
+            
+        showCart(); //使user一打開網頁就顯示訂單資訊
+        </script>
+    </body>
+</html>

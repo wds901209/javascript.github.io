@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector</title>
+</head>
+<body>
+    <button>你好</button>
+    <p>王東森</p>
+    <script>
+        //可取得html中的任何標籤
+        const documentElement = document.querySelector("button");
+        documentElement.innerHTML = "哈哈";
+        console.log(documentElement.innerHTML);
+
+        const pElement = document.querySelector("p");
+        pElement.innerHTML = "王西森";
+        console.log(pElement);
+    </script>
+</body>
+</html>

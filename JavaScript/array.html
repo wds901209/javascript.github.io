@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        //javascript中的array可以存完全不同的形態(該範例共7種)
+        let array = [10, 20, "三十", [1,2], 50, true, {value:20}];
+        console.log(array);
+
+        //取值，index和java相同
+        console.log(array[0]);
+        console.log(array[3]);
+
+        //改變array中的值
+        array[4] = 30;
+        console.log(array[4])
+
+        //看型態和長度
+        console.log(typeof array);
+        console.log(array.length);
+
+        //把資料放入array尾巴
+        array.push("last");
+        console.log(array);
+
+        //切割陣列 從0開始切割，且切割2筆資料，即只把10切掉
+        // array.splice(0, 2);
+        // console.log(array);
+    </script>
+</body>
+</html>

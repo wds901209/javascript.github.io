@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for test36</title>
+</head>
+<body>
+    <input placeholder="輸入商品名稱">
+    <button onclick="
+        addList();
+
+    ">新增</button>
+
+    <div>
+        
+    </div>
+
+    <script>
+        
+        let list = [];
+        function addList(){
+            const input = document.querySelector('input');
+            list.push(input.value); //放入陣列最後面
+            input.value = "";   //讓user輸完名字後自動清空
+            console.log(list);
+            
+            //創建一個包含所有商品名稱的HTML字符串
+            let html = "";
+            for(let i=0; i<list.length; i++){
+                html = html + `<p>${list[i]}</p>`;
+            }
+            //每次執行下面這行，其實之前的商品名字都是在被覆蓋一次
+            document.querySelector('div').innerHTML = html;
+        }
+            
+
+    </script>
+</body>
+</html>

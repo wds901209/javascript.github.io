@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web localStorage JSON</title>
+        <style>
+            button{
+                font-size:25px;
+                margin-right:10px;
+            }
+            p{
+                font-size: 25px;
+                display: inline-block;
+                margin-right:10px;
+            }
+            img{
+                height: 200px;
+                display: block;
+                margin-top:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="cart.showCart();">購物車總額</button>
+        
+        <button onclick="
+            cart.productNum = 0;
+            cart.product1.num = 0
+            cart.product2.num = 0;
+            cart.totalprice = 0;
+            console.log('已經清空購物車'); 
+            cart.showCart();
+        ">清空購物車</button>
+
+        <img src="product_images/product_image1.jpg">
+        <p>$100</p>
+        <button onclick="
+            cart.productNum ++;
+            cart.product1.num ++;
+            cart.totalprice = cart.totalprice+100;
+            cart.showCart();
+        ">加入購物車</button>
+
+        <img src="product_images/product_image2.jpg">
+        <p>$200</p>
+        <button onclick="
+            cart.productNum ++;
+            cart.product2.num ++;
+            cart.totalprice += 200;
+            cart.showCart();
+        ">加入購物車</button>
+        
+
+        <script>
+            let cart = {
+                productNum: 0,
+                product1: {
+                    num:0,
+                    name:"海底撈火鍋",
+                    price: 100
+                }, 
+                              
+                product2: {
+                    num:0,
+                    name:"養氣人參",
+                    price:200
+                },
+                totalprice: 0,
+                //在物件裡面寫上方法(物件內的函數)
+                showCart: function showCart(){
+                    console.log(`目前商品數量: ${cart.productNum}`);
+                    console.log(`${cart.product1.name}: ${cart.product1.num}`);
+                    console.log(`${cart.product2.name}: ${cart.product2.num}`);
+                    console.log(`目前購物車總額: ${cart.totalprice}`);
+                }
+            };
+            
+            //localStorage / JSON 把資料存在瀏覽器
+
+
+            //且只能是string!!!
+            //localStorage.setItem("price", 1000);
+            //console.log(localStorage.getItem("price"));
+            //console.log(typeof price);
+            //localStorage.setItem("cart", cart);
+
+            //會發現你就算存物件，取出來的仍是string
+            // const cart1 = localStorage.getItem("cart");
+            // console.log(typeof cart1);
+
+            //修改資料
+            //localStorage.setItem("price", 2000);
+
+            //刪除資料
+            //localStorage.removeItem("price");
+
+            //就是想要儲存物件怎麼辦??
+            //把js格式改成JSON格式字串-->屬性名字漢字串全部用雙引號包起來
+            //且JSON不能有函式
+
+            //const jsonCart = JSON.stringify(cart);
+            //localStorage.setItem("cart", jsonCart);
+            
+            //取出JSON
+            const cart1 = localStorage.getItem("cart");
+            console.log(cart1);
+        </script>
+    </body>
+</html>

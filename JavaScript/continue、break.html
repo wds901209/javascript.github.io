@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>continue、break</title>
+</head>
+<body>
+    <script>
+        //break跳"出"loop   continue跳"過"loop
+        for(let i=0; i<10; i++){
+            if(i === 5){
+                continue;   //可以發現console裡面沒有5，因他直接被跳過
+            }
+            console.log(i);
+        }
+
+        let nums = [100, 90, 50, 80, 70, 60];
+        let found = false;
+        for(let i=0; i<nums.length; i++){
+            if(nums[i] === 100){
+                //看有沒有人滿分
+                found = true;
+                break;
+            }
+        }
+        console.log(found);
+    </script>
+</body>
+</html>

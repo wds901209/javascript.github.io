@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get user's Input</title>
+</head>
+<body>
+    <input class="inputHeight" placeholder="請輸入身高(公分)">
+    <button onclick="
+          calculateHeight();
+    ">計算</button>
+    <p class="convertHeight">身高:&nbsp; &nbsp; &nbsp;公尺</p>
+
+    <script>
+
+        function calculateHeight(){
+            // 當按下計算，就取得input標籤(innerHTML是取得開始標籤->結束標籤。因此要用.VALUE)
+            let height = document.querySelector('input').value;
+            //把字串轉成數字，再存回原本的變數
+            height = Number(height); 
+            //轉換成公尺
+            height = height/100;  
+            console.log(height);
+            document.querySelector('p').innerHTML = `身高: ${height}公尺`;
+        }
+
+        //把數字轉成字串
+        // let stringNum = String(10);
+        // console.log(typeof stringNum);
+    </script>
+</body>
+</html>
